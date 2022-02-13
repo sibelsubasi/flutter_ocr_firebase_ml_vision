@@ -14,7 +14,7 @@ Library use in this project :
 - [firebase_ml_vision](https://pub.dev/packages/firebase_ml_vision)
 
 ## Screenshots
-<img src="https://github.com/sibelsubasi/flutter_ocr_firebase_ml_vision/blob/master/assets/Capture.png" width="40%" height="40%">
+<img src="https://github.com/sibelsubasi/flutter_ocr_firebase_ml_vision/blob/master/assets/Capture.png" width="60%" height="60%">
 <img src="https://github.com/sibelsubasi/flutter_ocr_firebase_ml_vision/blob/master/assets/icon/ss-1.jpg" width="40%" height="40%">
 <img src="https://github.com/sibelsubasi/flutter_ocr_firebase_ml_vision/blob/master/assets/icon/ss-2.jpg" width="40%" height="40%">
 
