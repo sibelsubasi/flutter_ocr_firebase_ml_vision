@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'dart:convert';
+import '../clippers/front.dart';
 
 class BndBox extends StatelessWidget {
   final List<dynamic> results;
@@ -55,11 +56,18 @@ class BndBox extends StatelessWidget {
 
         return Positioned(
           left: math.max(0, x),
-          top: math.max(0, y-30), // 30 ben ekledim..
+          top: math.max(0, y-35), // 30 ben ekledim..
           width: w,
           height: h,
           child: re['detectedClass'] == 'car'
               ? Container(
+                  padding: EdgeInsets.only(top: 5.0, left: 5.0),
+                  child: CustomPaint(
+                    size: Size(440,(440*0.8545454545454545).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                    painter: RPSCustomPainter(),
+                  ),
+                )
+                /*Container(
                   padding: EdgeInsets.only(top: 5.0, left: 5.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -76,7 +84,7 @@ class BndBox extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                )
+                )*/
               : Container(),
         );
       }).toList();

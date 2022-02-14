@@ -1,17 +1,8 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ocr_firebase/ui/camera_screen.dart';
-
-List<CameraDescription> cameras = [];
+import 'package:flutter_ocr_firebase/ui/home.dart';
 
 Future<void> main() async {
-  try {
-    WidgetsFlutterBinding.ensureInitialized();
-    // Retrieve the device cameras
-    cameras = await availableCameras();
-  } on CameraException catch (e) {
-    print(e);
-  }
+
   runApp(MyApp());
 }
 
@@ -24,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: CameraScreen(),
+      home: HomePage(),
     );
   }
 }

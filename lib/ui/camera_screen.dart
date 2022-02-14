@@ -6,7 +6,6 @@ import 'dart:math' as math;
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tflite/tflite.dart';
-import 'dart:convert';
 
 import 'detail_screen.dart';
 import 'bndbox.dart';
@@ -100,7 +99,7 @@ class _CameraScreenState extends State<CameraScreen> {
     setState(() {
       _isLoading = true;
     });
-    
+
     // Checking whether the controller is initialized
     if (_controller == null || !_controller.value.isInitialized) {
       print("Controller is not initialized");
@@ -211,6 +210,7 @@ class _CameraScreenState extends State<CameraScreen> {
                     screen.width,
                     _model
                 ),
+
                 /*Center(
                     child: Container(
                   margin: EdgeInsets.all(20.0),
