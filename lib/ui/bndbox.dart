@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'dart:convert';
 import '../clippers/front.dart';
+import '../clippers/side_right.dart';
 
 class BndBox extends StatelessWidget {
   final List<dynamic> results;
@@ -10,9 +11,10 @@ class BndBox extends StatelessWidget {
   final double screenH;
   final double screenW;
   final String model;
+  final String direction;
 
   BndBox(this.results, this.previewH, this.previewW, this.screenH, this.screenW,
-      this.model);
+      this.model, this.direction);
 
   @override
   Widget build(BuildContext context) {
@@ -54,18 +56,29 @@ class BndBox extends StatelessWidget {
           if (_y < difH / 2) h -= (difH / 2 - _y) * scaleH;
         }
 
+        var _manipulate = 0;
+        if(direction == 'front'){
+          _manipulate = 35;
+        }if(direction == 'side-right'){
+          _manipulate = 45;
+        }
+
         return Positioned(
           left: math.max(0, x),
-          top: math.max(0, y-35), // 30 ben ekledim..
+          top: math.max(0, y-(_manipulate)), // _manipulate ben ekledim..
           width: w,
           height: h,
           child: re['detectedClass'] == 'car'
               ? Container(
                   padding: EdgeInsets.only(top: 5.0, left: 5.0),
-                  child: CustomPaint(
-                    size: Size(440,(440*0.8545454545454545).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                    painter: RPSCustomPainter(),
-                  ),
+                  child: direction == 'front' ? CustomPaint(
+                    size: Size(440,(440*0.8545454545454545).toDouble()),
+                    painter: SideFrontCustomPainter(),
+                  ):
+                direction == 'side-right' ? CustomPaint(
+                    size: Size(440,(440*0.45588235294117646).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                    painter: SideRightCustomPainter(),
+                  ): null,
                 )
                 /*Container(
                   padding: EdgeInsets.only(top: 5.0, left: 5.0),

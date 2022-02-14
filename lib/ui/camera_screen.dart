@@ -13,6 +13,8 @@ import 'bndbox.dart';
 const String _model = "SSDMobileNet";
 
 class CameraScreen extends StatefulWidget {
+  final String direction;
+  CameraScreen(this.direction);
 
   @override
   _CameraScreenState createState() => _CameraScreenState();
@@ -208,7 +210,8 @@ class _CameraScreenState extends State<CameraScreen> {
                     math.min(_imageHeight, _imageWidth),
                     screen.height,
                     screen.width,
-                    _model
+                    _model,
+                    widget.direction
                 ),
 
                 /*Center(

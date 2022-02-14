@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CameraScreen(),
+                      builder: (context) => CameraScreen('front'),
                     ),
                   );
                 },
@@ -46,7 +46,14 @@ class HomePage extends StatelessWidget {
               ElevatedButton(
                 style: _style,
                 child: Text('Yan Çekim'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CameraScreen('side-right'),
+                    ),
+                  );
+                },
               ),
             ],
           ),
