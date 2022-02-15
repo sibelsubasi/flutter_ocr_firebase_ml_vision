@@ -1,6 +1,5 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import '../main.dart';
 import 'dart:io';
 import 'dart:math' as math;
 import 'package:intl/intl.dart';
@@ -166,8 +165,8 @@ class _CameraScreenState extends State<CameraScreen> {
 
   @override
   void dispose() {
-    _controller?.dispose();
     super.dispose();
+    _controller?.dispose();
   }
 
   @override

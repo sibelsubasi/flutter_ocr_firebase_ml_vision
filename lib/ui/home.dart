@@ -40,17 +40,36 @@ class HomePage extends StatelessWidget {
               ElevatedButton(
                 style: _style,
                 child: Text('Arka Çekim'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CameraScreen('back'),
+                    ),
+                  );
+                },
               ),
               SizedBox(height: 30),
               ElevatedButton(
                 style: _style,
-                child: Text('Yan Çekim'),
+                child: Text('Sağ Yan Çekim'),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => CameraScreen('side-right'),
+                    ),
+                  );
+                },
+              ),SizedBox(height: 30),
+              ElevatedButton(
+                style: _style,
+                child: Text('Sol Yan Çekim'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CameraScreen('side-left'),
                     ),
                   );
                 },

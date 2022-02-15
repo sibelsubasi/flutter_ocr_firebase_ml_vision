@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ocr_firebase/clippers/back.dart';
 import 'dart:math' as math;
 import 'dart:convert';
 import '../clippers/front.dart';
 import '../clippers/side_right.dart';
+import '../clippers/side_left.dart';
 
 class BndBox extends StatelessWidget {
   final List<dynamic> results;
@@ -57,11 +59,16 @@ class BndBox extends StatelessWidget {
         }
 
         var _manipulate = 0;
-        if(direction == 'front'){
+        if(direction == 'front' || direction == 'back'){
           _manipulate = 35;
-        }if(direction == 'side-right'){
+        }
+        if(direction == 'side-right'){
           _manipulate = 45;
         }
+        if(direction == 'side-left'){
+          _manipulate = 45;
+        }
+
 
         return Positioned(
           left: math.max(0, x),
@@ -72,13 +79,20 @@ class BndBox extends StatelessWidget {
               ? Container(
                   padding: EdgeInsets.only(top: 5.0, left: 5.0),
                   child: direction == 'front' ? CustomPaint(
-                    size: Size(440,(440*0.8545454545454545).toDouble()),
+                    size: Size(440,(440*0.8080495356037152).toDouble()),
                     painter: SideFrontCustomPainter(),
                   ):
                 direction == 'side-right' ? CustomPaint(
-                    size: Size(440,(440*0.45588235294117646).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                    size: Size(440,(440*0.35344827586206895).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                     painter: SideRightCustomPainter(),
-                  ): null,
+                  ):
+                direction == 'side-left' ? CustomPaint(
+                  size: Size(440,(440*0.35344827586206895).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                  painter: SideLeftCustomPainter(),
+                ): direction == 'back' ? CustomPaint(
+                  size: Size(440,(440*0.8259493670886076).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                  painter: SideBackCustomPainter(),
+                ): null,
                 )
                 /*Container(
                   padding: EdgeInsets.only(top: 5.0, left: 5.0),
